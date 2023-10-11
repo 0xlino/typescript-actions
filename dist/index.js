@@ -38,6 +38,9 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 // async function run(): Promise<void> {
 //   try {
@@ -81,7 +84,8 @@ const core = __importStar(__nccwpck_require__(2536));
 const wait_1 = __nccwpck_require__(2406);
 const { Octokit } = __nccwpck_require__(6616);
 const { execSync } = __nccwpck_require__(2081);
-const fetch = __nccwpck_require__(6435);
+// const fetch = require('node-fetch');
+const node_fetch_1 = __importDefault(__nccwpck_require__(6435)); // Import node-fetch
 function updateFilesInAnotherRepo() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -90,7 +94,7 @@ function updateFilesInAnotherRepo() {
             const targetBranch = 'main'; // Replace with the target branch name
             const targetToken = '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'; // Replace with your authentication token for the target repository
             const targetPRNumber = 1; // Replace with the target pull request number
-            const octokitTarget = new Octokit({ auth: targetToken, request: { fetch: fetch } });
+            const octokitTarget = new Octokit({ auth: targetToken, request: { fetch: node_fetch_1.default } });
             // Fetch the details of the pull request in the target repository
             const pullRequestResponse = yield octokitTarget.pulls.get({
                 owner: targetRepoOwner,
