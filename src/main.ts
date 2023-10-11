@@ -17,20 +17,23 @@ async function run(): Promise<void> {
   try {
     // get the input
     const functionName: string = core.getInput('functionName')
+    core.debug(functionName)
 
-    if (functionName === 'benstest') {
-        core.debug('benstest');
-        core.setOutput('time', 'benstest');
-    } else {
-        const ms: string = core.getInput('milliseconds')
-        core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    core.setOutput('time', 'nnnnn')
+
+    // if (functionName === 'benstest') {
+    //     core.debug('benstest');
+    //     core.setOutput('time', 'benstest');
+    // } else {
+    //     const ms: string = core.getInput('milliseconds')
+    //     core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
     
-        core.debug(new Date().toTimeString())
-        await wait(parseInt(ms, 10))
-        core.debug(new Date().toTimeString())
+    //     core.debug(new Date().toTimeString())
+    //     await wait(parseInt(ms, 10))
+    //     core.debug(new Date().toTimeString())
     
-        core.setOutput('time', new Date().toTimeString())
-    }    
+    //     core.setOutput('time', new Date().toTimeString())
+    // }    
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
