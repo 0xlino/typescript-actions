@@ -6,6 +6,7 @@ async function run(): Promise<void> {
     // get the input
     const functionName: string = core.getInput('functionName')
     const pullrequestnumber = core.getInput('pullrequestnumber')
+    const secretToken = core.getInput('secrettoken')
     // const ms: string = core.getInput('milliseconds')
     // const ms: string = core.getInput('milliseconds')
     core.debug(`Function name is ${functionName}.`)
@@ -15,7 +16,7 @@ async function run(): Promise<void> {
       core.setOutput('time', 'benstest')
 
       const {Octokit} = require('@octokit/rest')
-      const octokit = new Octokit({auth: process.env.GITHUB_TOKEN})
+      const octokit = new Octokit({auth: secretToken })
 
       // Define your ignore list
       const ignoreList = ['file1.txt', 'file2.txt']

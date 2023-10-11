@@ -12,6 +12,9 @@ inputs:
   pullrequestnumber: 
     required: true
     description: 'PR Number'
+  secrettoken: 
+    required: true
+    description: 'Token'
 runs:
   using: 'node16'
   main: 'dist/index.js'
