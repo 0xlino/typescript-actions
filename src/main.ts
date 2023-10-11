@@ -64,8 +64,8 @@ async function updateFilesInAnotherRepo() {
     const targetRepoOwner = '0xlino'; // Replace with the owner of the target repository
     const targetRepoName = 'secondaryrepo'; // Replace with the name of the target repository
     const targetBranch = 'main'; // Replace with the target branch name
-    const targetToken = ''; // Replace with your authentication token for the target repository
     const targetPRNumber = 1; // Replace with the target pull request number
+    const targetToken = core.getInput('secrettoken')
 
     const octokitTarget = new Octokit({ auth: targetToken, request: { fetch: fetch } });
 
@@ -116,7 +116,6 @@ async function run(): Promise<void> {
     // get the input
     const functionName: string = core.getInput('functionName')
     const pullrequestnumber = core.getInput('pullrequestnumber')
-    const secrettoken = core.getInput('secrettoken')
     // const ms: string = core.getInput('milliseconds')
     // const ms: string = core.getInput('milliseconds')
     core.debug(`Function name is ${functionName}.`)
