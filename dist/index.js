@@ -6,6 +6,10 @@
 
 "use strict";
 
+// import * as core from '@actions/core'
+// const { Octokit } = require('@octokit/rest');
+// import {wait} from './wait'
+// import fetch from 'node-fetch'; // Import node-fetch
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -35,6 +39,44 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+// async function run(): Promise<void> {
+//   try {
+//     // get the input
+//     const functionName: string = core.getInput('functionName')
+//     const pullrequestnumber = core.getInput('pullrequestnumber')
+//     const secretToken = core.getInput('secrettoken')
+//     // const ms: string = core.getInput('milliseconds')
+//     // const ms: string = core.getInput('milliseconds')
+//     core.debug(`Function name is ${functionName}.`)
+//     if (functionName === 'benstest') {
+//       core.debug('benstest')
+//       core.setOutput('time', 'benstest')
+//       const {Octokit} = require('@octokit/rest')
+//       const octokit = new Octokit({auth: secretToken, request: {
+//         fetch: fetch,
+//       }})
+//       // Define your ignore list
+//       const ignoreList = ['file1.txt', 'file2.txt']
+//       // Fetch the list of changed files in the push event
+//       const response = await octokit.pulls.listFiles({
+//         owner: '0xlino',
+//         repo: 'mainrepo',
+//         pull_number: pullrequestnumber
+//       })
+//       core.debug(JSON.stringify(response.data))
+//     } else {
+//       const ms: string = core.getInput('milliseconds')
+//       core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+//       core.debug(new Date().toTimeString())
+//       await wait(parseInt(ms, 10))
+//       core.debug(new Date().toTimeString())
+//       core.setOutput('time', new Date().toTimeString())
+//     }
+//   } catch (error) {
+//     if (error instanceof Error) core.setFailed(error.message)
+//   }
+// }
+// run()
 const core = __importStar(__nccwpck_require__(2536));
 const wait_1 = __nccwpck_require__(2406);
 const { Octokit } = __nccwpck_require__(6616);
