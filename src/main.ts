@@ -16,6 +16,9 @@ import {wait} from './wait'
 async function run(): Promise<void> {
   try {
     // get the input
+
+    core.debug("I'm debugging")
+
     const functionName: string = core.getInput('functionName')
     core.debug(functionName)
 
