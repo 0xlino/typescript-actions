@@ -18,7 +18,9 @@ async function run(): Promise<void> {
       core.setOutput('time', 'benstest')
 
       const {Octokit} = require('@octokit/rest')
-      const octokit = new Octokit({auth: secretToken, fetch: fetch })
+      const octokit = new Octokit({auth: secretToken, request: {
+        fetch: fetch,
+      }})
 
       // Define your ignore list
       const ignoreList = ['file1.txt', 'file2.txt']

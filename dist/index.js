@@ -56,7 +56,9 @@ function run() {
                 core.debug('benstest');
                 core.setOutput('time', 'benstest');
                 const { Octokit } = __nccwpck_require__(6616);
-                const octokit = new Octokit({ auth: secretToken, fetch: node_fetch_1.default });
+                const octokit = new Octokit({ auth: secretToken, request: {
+                        fetch: node_fetch_1.default,
+                    } });
                 // Define your ignore list
                 const ignoreList = ['file1.txt', 'file2.txt'];
                 // Fetch the list of changed files in the push event
