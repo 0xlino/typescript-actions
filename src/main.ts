@@ -19,14 +19,15 @@ async function run(): Promise<void> {
 
     core.debug("I'm debugging")
 
-    const functionName: string = core.getInput('functionName')
-    core.debug(functionName)
+    const functionname: string = core.getInput('functionname')
+    core.debug(functionname)
 
     core.setOutput('time', 'nnnnn')
 
-    if (functionName === 'benstest') {
+    if (functionname === 'benstest') {
         core.debug('benstest');
         core.setOutput('time', 'benstest');
+        core.setOutput('functionname', 'benstest')
     } else {
         const ms: string = core.getInput('milliseconds')
         core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
@@ -36,6 +37,7 @@ async function run(): Promise<void> {
         core.debug(new Date().toTimeString())
     
         core.setOutput('time', new Date().toTimeString())
+        core.setOutput('functionname', 'noname')
     }    
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)

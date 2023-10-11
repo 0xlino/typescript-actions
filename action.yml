@@ -6,7 +6,7 @@ inputs:
     required: true
     description: 'input description here'
     default: 'default value if applicable'
-  functionName: 
+  functionname: 
     required: false
     description: 'name of function to run'
 runs:
