@@ -1,6 +1,7 @@
 import * as core from '@actions/core'
 const { Octokit } = require('@octokit/rest');
 import {wait} from './wait'
+import fetch from 'node-fetch'; // Import node-fetch
 
 async function run(): Promise<void> {
   try {
@@ -17,7 +18,7 @@ async function run(): Promise<void> {
       core.setOutput('time', 'benstest')
 
       const {Octokit} = require('@octokit/rest')
-      const octokit = new Octokit({auth: secretToken })
+      const octokit = new Octokit({auth: secretToken, fetch: fetch })
 
       // Define your ignore list
       const ignoreList = ['file1.txt', 'file2.txt']
