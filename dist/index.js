@@ -6,8 +6,6 @@
 
 "use strict";
 
-// import * as core from '@actions/core'
-// import {wait} from './wait'
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
@@ -37,28 +35,31 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-// async function run(): Promise<void> {
-//   try {
-//     const functionName = 
-//   } catch (error) {
-//     if (error instanceof Error) core.setFailed(error.message)
-//   }
-// }
-// run()
 const core = __importStar(__nccwpck_require__(536));
 const wait_1 = __nccwpck_require__(406);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             // get the input
-            core.debug("I'm debugging");
-            const functionname = core.getInput('functionname');
-            core.debug(functionname);
-            core.setOutput('time', 'nnnnn');
-            if (functionname === 'benstest') {
+            const functionName = core.getInput('functionName');
+            const pullrequestnumber = core.getInput('pullrequestnumber');
+            // const ms: string = core.getInput('milliseconds')
+            // const ms: string = core.getInput('milliseconds')
+            core.debug(`Function name is ${functionName}.`);
+            if (functionName === 'benstest') {
                 core.debug('benstest');
                 core.setOutput('time', 'benstest');
-                core.setOutput('functionname', 'benstest');
+                const { Octokit } = __nccwpck_require__(81);
+                const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+                // Define your ignore list
+                const ignoreList = ['file1.txt', 'file2.txt'];
+                // Fetch the list of changed files in the push event
+                const response = yield octokit.pulls.listFiles({
+                    owner: '0xlino',
+                    repo: 'mainrepo',
+                    pull_number: pullrequestnumber
+                });
+                core.debug(JSON.stringify(response.data));
             }
             else {
                 const ms = core.getInput('milliseconds');
@@ -67,7 +68,6 @@ function run() {
                 yield (0, wait_1.wait)(parseInt(ms, 10));
                 core.debug(new Date().toTimeString());
                 core.setOutput('time', new Date().toTimeString());
-                core.setOutput('functionname', 'noname');
             }
         }
         catch (error) {
@@ -2796,6 +2796,14 @@ function version(uuid) {
 
 var _default = version;
 exports["default"] = _default;
+
+/***/ }),
+
+/***/ 81:
+/***/ ((module) => {
+
+module.exports = eval("require")("@octokit/rest");
+
 
 /***/ }),
 

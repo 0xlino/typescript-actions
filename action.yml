@@ -9,6 +9,9 @@ inputs:
   functionname: 
     required: false
     description: 'name of function to run'
+  pullrequestnumber: 
+    required: true
+    description: 'PR Number'
 runs:
   using: 'node16'
   main: 'dist/index.js'
