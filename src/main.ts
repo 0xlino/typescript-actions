@@ -1,4 +1,5 @@
 import * as core from '@actions/core'
+const { Octokit } = require('@octokit/rest');
 import {wait} from './wait'
 
 async function run(): Promise<void> {
