@@ -11,4 +11,4 @@ inputs:
     description: 'name of function to run'
 runs:
   using: 'node16'
-  main: 'lib/main.js'
+  main: 'dist/index.js'
