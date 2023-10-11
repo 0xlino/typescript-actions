@@ -43,6 +43,7 @@ function run() {
             // get the input
             const functionName = core.getInput('functionName');
             const pullrequestnumber = core.getInput('pullrequestnumber');
+            const secretToken = core.getInput('secrettoken');
             // const ms: string = core.getInput('milliseconds')
             // const ms: string = core.getInput('milliseconds')
             core.debug(`Function name is ${functionName}.`);
@@ -50,7 +51,7 @@ function run() {
                 core.debug('benstest');
                 core.setOutput('time', 'benstest');
                 const { Octokit } = __nccwpck_require__(81);
-                const octokit = new Octokit({ auth: process.env.GITHUB_TOKEN });
+                const octokit = new Octokit({ auth: secretToken });
                 // Define your ignore list
                 const ignoreList = ['file1.txt', 'file2.txt'];
                 // Fetch the list of changed files in the push event
