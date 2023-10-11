@@ -2,6 +2,7 @@ import * as core from '@actions/core'
 import { wait } from './wait'
 const { Octokit } = require('@octokit/rest');
 const { execSync } = require('child_process');
+const fetch = require('node-fetch');
 
 async function updateFilesInAnotherRepo() {
     try {
